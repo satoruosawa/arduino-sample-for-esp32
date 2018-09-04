@@ -18,7 +18,7 @@ void setup() {
     BLECharacteristic::PROPERTY_READ
   );
   SERVICE->start();
-  SERVER->getAdvertising()->start();
+  SERVER->startAdvertising();
 
   CHARACTERISTIC->setValue("Read");
 }
