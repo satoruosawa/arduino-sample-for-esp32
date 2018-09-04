@@ -2,24 +2,13 @@
 #include <BLEDevice.h>
 #include <BLE2902.h>
 
-BLEServer * SERVER;
-BLEService * SERVICE;
-BLECharacteristic * CHARACTERISTIC;
-
 #define SERVICE_UUID "e77fe789-2d78-4123-be83-166486bb8b55"
 #define CHARACTERISTIC_UUID "ea1fb90b-6411-40e6-abca-e9b1b82350fa"
 
-bool DEVICE_CONNECTED = false;
+BLEServer * SERVER;
+BLEService * SERVICE;
+BLECharacteristic * CHARACTERISTIC;
 uint8_t COUNT = 0;
-
-class ServerCallbacks: public BLEServerCallbacks {
-  void onConnect(BLEServer* pServer) {
-    DEVICE_CONNECTED = true;
-  };
-  void onDisconnect(BLEServer* pServer) {
-    DEVICE_CONNECTED = false;
-  }
-};
 
 void setup() {
   BLEDevice::init("ESP32_TEST");
